@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Sneakerland4.Data.Brands>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandsName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandsDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandsCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandsName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandsDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandsCount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BrandsId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BrandsId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BrandsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
